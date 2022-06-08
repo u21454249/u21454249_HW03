@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h2>myMedia</h2>
+<p>Upload media</p>
+<div class="row jumbotron">
+
+    <div class="row">
+        <div class="col-md-5">
+            <h2>Description</h2>
+            <p>You will upload a file, imgae or video. The user will be able to select the file from their computer which will be uploaded on the submit of the form</p>
+        </div>
+        <div class="col-md-7">
+            <h3>Option Selection</h3>
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+        <form>
+            <div class="form-group">
+                @Html.RadioButton("FileType", "Document")<span>Documents</span><br>
+            </div>
+            <div class="form-group">
+                @Html.RadioButton("FileType", "Image")<span>Images</span><br>
+            </div>
+            <div class="form-group form-check">
+                @Html.RadioButton("FileType", "Video")<span>Video</span><br>
+            </div>
+            <div><input type="file" name="files" /></div>
+            <br />
+            <div><input type="submit" value="Upload" /></div>
+        </form>
+            }
+        </div>
+
+    </div>
+</div>

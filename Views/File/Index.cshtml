@@ -1,0 +1,62 @@
+﻿@model IEnumerable<u2145249_HW03.Models.FileModel>
+
+@{
+    ViewBag.Title = "FileView";
+}
+
+<head>
+    <style type="text/css">
+        .auto-style {
+            color: #FFFFFF;
+        }
+
+        .t {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<h2>Document of any type</h2>
+<p>...media/documents/ folder</p>
+
+<div class="jumbotron">
+    <div class="row">
+        <div style="height: 400px; overflow: auto;">
+            <div class="well-sm">
+                <table class="table table-condensed table-hover">
+                    <thead style="position: sticky;top: 0">
+                        <tr bgcolor="#222222" class="auto-style">
+                            <th class="col-lg-8">File Name</th>
+                            <th class="t, col-lg-2">Download Option</th>
+                            <th class="t, col-lg-2">Delete option</th>
+                        </tr>
+                    </thead>
+                    @foreach (var file in Model)
+                    {
+                        <tr>
+                            @*
+                                Default >> @Html.DisplayFor(modelItem => file.FileName)
+                            *@
+
+                            <td>@file.FileName</td>
+                            <td>
+                                <button class="btn btn-primary btn-success">
+                                    @Html.ActionLink("Download", "DownloadFile",
+                                     new { fileName = file.FileName })
+                                </button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-primary btn-danger">
+                                    @Html.ActionLink("Delete", "DeleteFile",
+                                   new { fileName = file.FileName },
+                                   new { onclick = "return confirm('Are you sure you wish to delete this?');" })
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
