@@ -10,7 +10,6 @@
 <div class="jumbotron">
     <div class="row">
         <div class="row">
-            <div class="col-sm-7">
                     @foreach (var item in Model)
                     {
 
@@ -25,7 +24,7 @@
                              new { fileName = item.FileName })
                         </button>
                         <button type="button" class="btn btn-primary btn-danger">
-                            @Html.ActionLink("Delete", "DeleteFile",
+                            @Html.ActionLink("Delete", "Delete",
                            new { fileName = item.FileName },
                            new { onclick = "return confirm('Are you sure you wish to delete this?');" })
                         </button>

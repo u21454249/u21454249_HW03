@@ -28,13 +28,13 @@ namespace u2145249_HW03.Controllers
 
         public ActionResult Download(string FileName)
         {
-            //Build the File Path.
+            
             string path = Server.MapPath("~/Media/Videos/") + FileName;
 
-            //Read the File data into Byte Array.
+            
             byte[] bytes = System.IO.File.ReadAllBytes(path);
 
-            //Send the File to Download.
+           
             return File(bytes, "application/octet-stream", FileName);
 
         }
